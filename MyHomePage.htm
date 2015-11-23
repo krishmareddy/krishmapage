@@ -1,0 +1,329 @@
+<html>
+<head>
+<Title>My Home Page</Title>
+</head>
+<STYLE type=text/css media=all>
+
+BODY {
+	FONT-SIZE: 0.9em; BACKGROUND: url(js/Images/Insert your image here) ; COLOR: #000; FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; TEXT-ALIGN: center
+}
+H1 {
+	FONT-SIZE: 1.2em; MARGIN: 0px; COLOR: #444; TEXT-ALIGN: left
+}
+H2 {
+	FONT-SIZE: 0.9em; MARGIN: 0px; COLOR: #666; TEXT-ALIGN: left
+}
+H3 {
+	BORDER-TOP: #999 2px solid; BORDER-RIGHT: #999 2px solid; BORDER-BOTTOM: #999 2px solid; BORDER-LEFT: #999 2px solid; BACKGROUND-COLOR: #ffe; FLOAT: Left; FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif;FONT-SIZE: 0.9em; COLOR: #666; PADDING-TOP: 4px; PADDING-RIGHT: 4px; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; TEXT-ALIGN: left
+}
+H4 {
+	FONT-SIZE: 0.9em; MARGIN: 2px; COLOR: #000; FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; BORDER-TOP: #999 1px dashed; PADDING-TOP: 4px; PADDING-RIGHT: 4px; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; TEXT-ALIGN: center
+}
+#AnnoucementContainer {
+	position:absolute; MARGIN: 10px auto; WIDTH: 600px;border: 0px solid #222; TEXT-ALIGN: left; PADDING: 2px; LEFT:420px; TOP:440px; *TOP:460px
+}
+html*#RSSContainer {
+	[position:absolute; MARGIN: 0px auto; WIDTH: 850px; HEIGHT:20px; border: 0px solid #222;TEXT-ALIGN: right; PADDING: 0px; -moz-border-radius: 8px; border-radius: 8px; Z-INDEX: 1; LEFT:110px; TOP:34px;]
+}
+#RSSContainer {
+	position:absolute; MARGIN: 0px auto; WIDTH: 850px; HEIGHT:20px; border: 0px solid #222;TEXT-ALIGN: right; PADDING: 0px; -moz-border-radius: 8px; border-radius: 8px; Z-INDEX: 1; LEFT:110px; TOP:24px; *LEFT:100px; *TOP:40px;
+}
+#MenuContainerL1	{
+	position:absolute;width:250px;height:220px; padding:8px;FONT-SIZE: 1em; BACKGROUND-COLOR: #ffe;FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN : LEFT; border: 2px solid #222; -moz-border-radius: 8px; border-radius: 8px; Z-INDEX: 1; LEFT:100px; TOP:80px
+}
+#MenuContainerL2	{
+	position:absolute;width:400px;height:350px; padding:2px;FONT-SIZE: 1em; BACKGROUND-COLOR: ;FONT-FAMILY:"Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN : LEFT; border: 2px solid #222; -moz-border-radius: 8px; border-radius:8px; Z-INDEX: 1; LEFT:375px; *LEFT:365px; TOP:80px
+}
+#MenuContainerL3	{
+	position:absolute;width:180px;height:340px; padding:8px;FONT-SIZE: 1em; BACKGROUND-COLOR: #ffe;FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN : LEFT; border: 2px solid #222; -moz-border-radius: 8px; border-radius: 8px; Z-INDEX: 1; LEFT:788px; TOP:80px
+}
+#MenuContainerL4	{
+	position:absolute;width:250px;height:250px; padding:8px;FONT-SIZE: 1em; BACKGROUND-COLOR: #ffe;FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN : LEFT; border: 2px solid #222; -moz-border-radius: 8px; border-radius: 8px; Z-INDEX: 1; LEFT:100px; TOP:325px; *TOP:310px
+}
+#SubMenuContainer1	{
+	left:210px;padding:2px;FONT-SIZE: 1em; FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN: Left
+}
+#MinMaxContainer	{
+	position:absolute;left:230px;*left:220px;padding:2px;FONT-SIZE: 1em; FONT-FAMILY: "Trebuchet ms",Arial,Helvetica,sans-serif; Text-ALIGN: Left;border:0px solid;Z-INDEX: 2;
+}
+#Preview{
+	position:absolute;border:1px solid #ccc;background:#333;padding:5px;display:none;color:#fff;Z-INDEX: 2;
+}
+</STYLE>
+
+<!-- Insert Thumbnails -->
+<script language="JavaScript">
+
+function insertThumbnails(){
+	<!-- Insert filesnames here from local PC -->
+	var fileDir = "file:///C:/Documents and Settings/All Users/Documents/My Pictures/Sample Pictures/";
+	var fileName = new Array("Blue hills.jpg","Sunset.jpg","Water lilies.jpg","Winter.jpg");
+		
+	for(w=0; w<fileName.length; w++){
+		document.write('<a href="' + fileDir + fileName[w] + '" class="preview" target="_blank"><img src="' + fileDir + fileName[w] + '" alt="gallery thumbnail" height="50px" width="50px" border=0/></a>');
+		}
+	}
+
+</script>
+
+<!-- Google Map -->
+<script type="text/javascript">
+    function addLoadEvent(func) {
+		
+        var oldonload = window.onload;
+        if (typeof window.onload != 'function') {
+            window.onload = func;
+        } else {
+            window.onload = function() {
+                if (oldonload) {
+                    oldonload();
+                }
+            func();
+            }
+        }
+    }
+   
+//Setup the map
+    addLoadEvent(function() {
+        load(); 
+    })
+</script>
+
+ <script src="http://maps.google.com/maps?file=api&v=2&key=Insert your key here"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+   
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+        var point = new GLatLng(1.2941523528614371, 103.8508415222168);
+
+        map.setCenter(point, 17);
+        
+        map.addControl(new GMapTypeControl());
+        map.setMapType(G_NORMAL_MAP);
+
+        var marker = new GMarker(point);
+        var html = "<font size='-1' face='Tahoma'>39 Stamford Road<br>#01-07 Stamford House<br>Singapore 178885<br>Hours: 9.00AM-12.00MN</font>";
+        GEvent.addListener(marker, 'click', function() { marker.openInfoWindowHtml(html); });
+
+        map.addOverlay(marker);
+
+        marker.openInfoWindowHtml(html);
+      }
+    }
+
+    </script>
+<!-- End Google Map -->	
+
+<!-- Download/Get RSS feed uses Google feed API -->
+
+<script type="text/javascript" src="http://www.google.com/jsapi?key=notsupplied-wizard"></script>
+<script type="text/javascript">
+
+google.load("feeds", "1");
+
+// Our callback function, for when a feed is loaded.
+function feedLoaded(result) {
+	
+  var newsScroll = '';
+  var updatedTime = new Date();
+
+  if (!result.error) {
+    // Get and clear our content div.
+    var content = document.getElementById('content');
+   
+    // Get all items returned.
+    var items = result.xmlDocument.getElementsByTagName('item');
+
+    // Get source of RSS feed
+    var rsstitle = result.xmlDocument.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+
+    // Loop through our items
+    for (var i = 0; i <= items.length; i++) {
+
+	if (i==items.length){
+		
+		// Adds news source as header
+		newsScroll = "<span style='background-color:#7FB51A;'><font color=#FFFFFF><B>&nbsp;" + rsstitle  + "&nbsp;</B></Span>&nbsp;&nbsp;&nbsp;" + newsScroll + " <font color=#DC143C>Last Updated: " + updatedTime.toLocaleTimeString() + "</font>&nbsp;&nbsp;";
+	}
+	else{
+	
+      	var item = items[i];
+
+      	// Get the title from the element.  firstChild is the text node containing
+      	// the title, and nodeValue returns the value of it.
+      	var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
+      	var link = item.getElementsByTagName('link')[0].firstChild.nodeValue;
+		var desc = item.getElementsByTagName('description')[0].firstChild.nodeValue;
+
+	newsScroll += "<a href='" + link + "' title='" + desc + "' target=_New>" + title + "</a>&nbsp;&nbsp;&nbsp;";
+	}	
+    }
+  }	
+	content.innerHTML += newsScroll;
+}
+
+function OnLoad() {
+
+var refreshTime = new Date();
+// Create an array to hold the feeds source
+var rssURL = new Array("http://www.channelnewsasia.com/rss/latest_cna_frontpage_rss.xml","http://www.channelnewsasia.com/rss/latest_cna_sg_rss.xml","http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml","http://www.nytimes.com/services/xml/rss/nyt/World.xml");
+
+	for (var x = 0; x<=4; x++){
+	
+		if (x==4){
+			document.getElementById('content').innerHTML = ''; //clear out prev feeds
+		}
+		else{
+		var feed = new google.feeds.Feed(rssURL[x]);
+		// Request the results in XML
+  		feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+
+  		feed.includeHistoricalEntries(); // tell the API we want to have old entries too
+  		feed.setNumEntries(8); // we want a maximum of 250 entries, if they exist
+		
+		// Calling load sends the request off.  It requires a callback function.
+		feed.load(feedLoaded);
+		}
+	}
+	
+	//do a refresh half hour
+	setTimeout(OnLoad, 1800000);
+}
+
+google.setOnLoadCallback(OnLoad);
+
+</script>
+<!-- End Download/Get RSS feed -->
+
+<!-- Yahoo calendar API -->
+<!-- Combo-handled YUI CSS files: --> 
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.6.0/build/calendar/assets/skins/sam/calendar.css"> 
+<!-- Combo-handled YUI JS files: --> 
+<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.6.0/build/yahoo-dom-event/yahoo-dom-event.js&2.6.0/build/calendar/calendar-min.js"></script> 
+
+<script>
+ 			
+	var dte = new Date();
+	var evtdates = "1/15/2009,1/19/2009,2/16/2009"
+	var evtdate = new Array("1/15/2009","1/19/2009","2/16/2009"); //insert evt dates here
+	var evtdesc = new Array("Party Time! between 2.00pm-5.00pm","Meeting with Colleague @ 9am","Filming @ Studio between 2.00pm-3.00pm") //insert evt desc here
+	
+	function mySelectedEvts(ev,args) {
+		var d = args[0][0];
+		var selDate = d[1] + '/' + d[2] + '/' + d[0];
+			
+		for(var x=0; x<evtdate.length; x++){
+				
+			if (selDate == evtdate[x]) {
+
+	               		alert("Event: " + evtdesc[x] + "\r\nDate: " +  d[2] + "/" + d[1] + "/" + d[0]); }
+			else{
+				//This will re-render the calendar so user unable 2 select other dates
+				YAHOO.example.calendar.cal1.cfg.setProperty("selected",evtdates,false); //insert evt dates here separated by commas
+				YAHOO.example.calendar.cal1.render();
+			} //else
+		} //for
+        }//function
+
+	function myDeSelectedEvts(ev,args) {
+		
+		//This will re-render the calendar so user unable 2 select other dates
+		YAHOO.example.calendar.cal1.cfg.setProperty("selected",evtdates,false); //insert evt dates here separate by commas
+		YAHOO.example.calendar.cal1.render();
+			
+	}
+
+	YAHOO.namespace("example.calendar");
+	YAHOO.example.calendar.init = function() {
+		YAHOO.example.calendar.cal1 = new YAHOO.widget.Calendar("cal1","cal1Container", {selected:evtdates});	
+		YAHOO.example.calendar.cal1.cfg.setProperty("pagedate", (dte.getMonth() + 1) + "/" + dte.getFullYear());
+ 		YAHOO.example.calendar.cal1.selectEvent.subscribe(mySelectedEvts,YAHOO.example.calendar.cal1, true);
+		YAHOO.example.calendar.cal1.deselectEvent.subscribe(myDeSelectedEvts,YAHOO.example.calendar.cal1, true);
+		YAHOO.example.calendar.cal1.render();
+	}
+	
+	YAHOO.util.Event.onDOMReady(YAHOO.example.calendar.init);
+	
+
+</script>
+<!-- End Yahoo Calendar API -->
+
+<Body>
+<script type="text/javascript">
+	var d = new Date();
+	document.write('<H2>Today is: ' + d.toLocaleDateString() + '</H2>');
+</script>
+
+<DIV id=RSSContainer>
+<!-- img src="js/images/feed-icon-14x14.png" width="14" height="14" align=Center> RSS feeds updated every 30 minutes. Feeds from CNA, NYTimes and BBC world -->
+<DIV ID="TICKER" STYLE="display:none; border-top:0px solid #CCCCCC; border-bottom:0px solid #CCCCCC; overflow:hidden; *background-color:#FFFFFF; width:100%; TEXT-ALIGN: left; " onmouseover="TICKER_PAUSED=true" onmouseout="TICKER_PAUSED=false">
+<div id="content">loading ... </div>
+</DIV>
+<script type="text/javascript" src="js/webticker_lib.js" language="javascript"></script>
+<font style="font-size:9pt; font-family: 'Trebuchet ms',arial,helvetica,sans-serif;"><A href="http://www.mioplanet.com/rsc/newsticker_javascript.htm" target="Mio">Scrolling News Ticker</A>
+by <a href="http://www.mioplanet.com">Mioplanet</a></font>
+</DIV>
+
+<!-- Insert Announcements here -->
+<DIV id=AnnoucementContainer>
+Announcements:
+<UL>
+	<li>Take note of Police crime alert (on notice board) - 09/01/2009
+</UL>
+</DIV>
+<!-- End Announcements -->
+<!-- Holds Quicklinks and Email -->
+<DIV id=MenuContainerL1>
+<H2>Quick Links</H2>(The links will open in a new window)
+<br><br>
+<UL>
+	<li><a href="http://www.wired.com" target="_blank" title="Wired Website">Wired</a><br> 
+	<li><a href="http://www.nytimes.com" target="_blank" title="New York Times">NYTimes</a><br>
+	<li><a href="http://www.bbc.co.uk" target="_blank" title="BBC">BBC</a><br>
+	<li><a href="http://mail.yahoo.com" target="_blank" title="Yahoo Mail">Yahoo</a><br>
+	<li><a href="http://http://www.w3schools.com/HTML/html_colornames.asp" target="_blank" title="HTML colors">HTML Colors</a><br>
+	<li><a href="http://www.funhax.com" target="_blank" title="Funhax Games">Funhax Game Website</a><br>
+	<li><a href="http://www.crazymonkeygames.com" target="_blank" title="Funhax Games">Crazy Monkey Games</a><br>
+</UL>
+</DIV>
+<DIV id=MenuContainerL4>
+<DIV id="MinMaxContainer">
+	<a onclick="switchMenu('SubMenuContainer1');" title="Gallery, click to minimise" onMouseOver="this.style.cursor='pointer';"><img src="js/Images/bullet_toggle_minus.png" border=0></a>
+</DIV>
+<H2>Gallery:</H2>
+	<DIV id="SubMenuContainer1">
+		<script type="text/javascript">
+			insertThumbnails();
+		</script>
+	</DIV>
+	<H4></H4>
+</DIV>
+<!-- Holds Google Map -->
+<DIV id=MenuContainerL2>
+<div id="map" style="width: 400px; height: 350px" title="Map to Stamford House"></div>
+</DIV>
+
+<!-- Holds Msgr status and Yahoo Calendar-->
+<DIV id=MenuContainerL3>
+<H2>Whose Online Now: </H2>
+Dad<br>
+<a href = 'ymsgr:sendim?dad' title="Is dad online?"><img src="http://opi.yahoo.com/online?u=dad&m=g&t=2" border=0>
+</a><br>
+Mom<br>
+<a href = 'ymsgr:sendim?mom' title="Is mom online?"><img src="http://opi.yahoo.com/online?u=mom&m=g&t=2" border=0>
+</a><br><H4></H4>
+<!-- Yahoo calendar to display upcoming events -->
+<div id="cal1Container" class="yui-skin-sam"></div>
+</DIV>
+</Body>
+
+<!-- Loads last to speedup page load -->
+<script type="text/javascript" src="http://yui.yahooapis.com/2.6.0/build/yuiloader/yuiloader-min.js"></script>
+<script type="text/javascript" src="js/alert.js"></script>
+<script type="text/javascript" src="js/collapse_menu.js"></script> 
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+
+</html>
